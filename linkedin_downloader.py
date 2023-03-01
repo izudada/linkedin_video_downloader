@@ -4,18 +4,35 @@ from bs4 import BeautifulSoup
 import json
 
 
-def lk_downloader():
-    link = input("Enter the link to a LinkedIn post: \n")
+def lk_downloader(link):
+    """
+        A function that take a url of a linkedIn post
+        and dowload a video attached to it if exists
+    """
     title = "_".join(link.split("-")[1:-3]) #   create title from post
-    res = requests.get(link)    #   get post using request library
+    try:
+        res = requests.get(link)    #   get post using request library
+    except Exception as e:
+        print(e)
+        return "Please connect to the internet before downloading video"
     #   send response to bs4
+
     soup = BeautifulSoup(res.text, features='html.parser')
-    videos = soup.find_all('video') #   find video tag(s)
+    videos = soup.find_all("video") #   find video tag(s)
+
+    #   check if linkedin post has a video
+    if len(videos) == 0:
+        return "Invalid LinkedIn url. No video was found"
+    
     #   extract video url
     result = json.loads(videos[0]['data-sources'])[0]['src']
-    file_name = f"{title}.mp4"  #   create filename from title
+    file_name = f"{title}_video.mp4"  #   create filename from title
     #   make request using video url
-    video_url = requests.get(result, stream=True)
+    try:
+        video_url = requests.get(result, stream=True)
+    except Exception as e:
+        print(e)
+        return "Please connect to the internet before downloading video"
 
     #   stream video from response
     with open(file_name, 'wb') as f: 
@@ -23,6 +40,4 @@ def lk_downloader():
             if chunk: 
                 f.write(chunk) 
         print(f"downloaded {file_name}")
-    print("Downloded video sucessfully")
-
-lk_downloader()
+    return "Downloded video sucessfully"
