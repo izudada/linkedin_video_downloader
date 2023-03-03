@@ -19,7 +19,10 @@ body{
     font-family: 'Tilt Neon', cursive;
     background-color: var(--light-blue);
     text-align: center;
-    padding-top: 35vh;
+}
+
+h1{
+    margin-top: 35vh;
 }
 
 form{
@@ -79,12 +82,15 @@ input[type="submit"]:hover{
 }
 
 .loader {
-    border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid #3498db; /* Blue */
+    border: 16px solid var(--main-white);
+    border-top: 16px solid  #003d66;
     border-radius: 50%;
-    width: 120px;
-    height: 120px;
+    margin: 10vh 0 2vh 0;
+    width: 70px;
+    height: 70px;
     animation: spin 2s linear infinite;
+    position: absolute;
+    right: 50%;
 }
   
 @keyframes spin {
@@ -92,6 +98,6 @@ input[type="submit"]:hover{
     100% { transform: rotate(360deg); }
 }
 
-.remove-loader{
+.hidden{
     display:none;
 }
