@@ -6,14 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LinkedIn Video Downloader</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter&family=Poppins:wght@400;600;700&family=Tilt+Neon&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <main>
-        <!-- <div class="loader" id="video_loader"> 
-        </div>-->
+        <div class="loader hidden" id="video_loader"> 
+        </div>
 
         <div class="flash">
             {% for category, message in get_flashed_messages(with_categories=true) %}
@@ -24,10 +23,11 @@
         <h1>LinkedIn Video Donwloader </h1>
         <form action="" method="post">
             <input type="text" placeholder="paste link here" name="url" required>
-            <input type="submit" value="Download">
+            <input type="submit" id="submit" value="Download">
         </form>
     </main>
 
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
 
 </body>
 </html>
