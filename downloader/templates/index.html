@@ -12,15 +12,18 @@
 </head>
 <body>
     <main>
+        <!-- <div class="loader" id="video_loader"> 
+        </div>-->
+
         <div class="flash">
-            {% for message in get_flashed_messages() %}
-                <div class="flash">{{ message }}</div>
+            {% for category, message in get_flashed_messages(with_categories=true) %}
+                <div class="{{ category }}">{{ message }}</div>
             {% endfor %}
         </div>
 
         <h1>LinkedIn Video Donwloader </h1>
         <form action="" method="post">
-            <input type="text" placeholder="paste link here" name="url">
+            <input type="text" placeholder="paste link here" name="url" required>
             <input type="submit" value="Download">
         </form>
     </main>
