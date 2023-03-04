@@ -25,7 +25,7 @@ $ pip install -r requirements.txt
 Before starting the flas server, you will need to set some environmental values via the terminal:
 
 ```sh
-$ export FLASK_APP=downloader   #   tells flask where to find the entry application file
+$ export FLASK_APP=main   #   tells flask where to find the entry application file
 $ export FLASK_ENV=DEBUG    #   tells flask what environment you want to run or start
 ```
 
