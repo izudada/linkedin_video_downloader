@@ -1,8 +1,7 @@
 from flask import (
     Blueprint, flash, redirect, render_template, request, url_for
 )
-from werkzeug.exceptions import abort
-from .linkedin_downloader import lk_downloader
+from downloader.linkedin_downloader import lk_downloader
 
 
 bp = Blueprint('downloader', __name__)

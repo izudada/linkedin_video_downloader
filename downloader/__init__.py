@@ -1,6 +1,6 @@
 import os
 from flask import Flask
-from . import downloader
+from downloader import my_downloader
 
 
 def create_app(test_config=None):
@@ -28,7 +28,7 @@ def create_app(test_config=None):
     def hello():
         return 'Hello, World!'
     
-    app.register_blueprint(downloader.bp)
+    app.register_blueprint(my_downloader.bp)
     app.add_url_rule('/', endpoint='index')
 
     return app
