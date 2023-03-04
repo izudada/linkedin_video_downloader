@@ -22,7 +22,7 @@ def index():
             flash(message, 'success')
         else:
             flash(message, 'danger')
-        return redirect(url_for('index', loader="loader"))
+        return redirect(url_for('index'))
     #   get request condition
     else:
         return render_template('index.html')
