@@ -2,11 +2,9 @@ import requests
 from requests.auth import HTTPBasicAuth
 from bs4 import BeautifulSoup
 import json
-from pathlib import Path
-import os
 
 
-def lk_downloader(link):
+def lk_downloader(link, path):
     """
         A function that take a url of a linkedIn post
         and dowload a video attached to it if exists
@@ -29,18 +27,18 @@ def lk_downloader(link):
     #   extract video url
     result = json.loads(videos[0]['data-sources'])[0]['src']
     file_name = f"{title}_video.mp4"  #   create filename from title
+
+    print(result)
     #   make request using video url
     try:
         video_url = requests.get(result, stream=True)
     except Exception as e:
         print(e)
         return "Please connect to the internet before downloading video"
-
     #   stream video from response
-    path = str(os.path.join(Path.home(), "Downloads/"))
     with open(path+file_name, 'wb') as f: 
         for chunk in video_url.iter_content(chunk_size = 1024*1024): 
             if chunk: 
                 f.write(chunk) 
         print(f"downloaded {file_name}")
-    return "Downloded video sucessfully"
+    return file_name
