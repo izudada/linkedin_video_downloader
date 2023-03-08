@@ -20,7 +20,7 @@ def index():
         if request.environ.get('HTTP_HOST') == '127.0.0.1:5000':
             path = os.path.expanduser("~")+"/Downloads/"
         else:
-            path = os.path.expanduser("~")
+            path = os.path.expanduser("~")+"/"
         #   get user input 
         linkedin_post = request.form['url']
         #   call lk_downloader and pass in user input
