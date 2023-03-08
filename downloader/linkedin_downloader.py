@@ -37,7 +37,7 @@ def lk_downloader(link):
         return "Please connect to the internet before downloading video"
 
     #   stream video from response
-    path = str(os.path.join(Path.home(), "Downloads/"))
+    path = str(os.path.join(Path.home(), "Downloads/")) #   get path to user download folder
     with open(path+file_name, 'wb') as f: 
         for chunk in video_url.iter_content(chunk_size = 1024*1024): 
             if chunk: 
