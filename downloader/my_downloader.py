@@ -2,7 +2,8 @@ from flask import (
     Blueprint, flash, redirect, render_template, request, url_for
 )
 from downloader.linkedin_downloader import lk_downloader
-
+from pathlib import Path
+import os
 
 bp = Blueprint('downloader', __name__)
 
@@ -12,6 +13,8 @@ def index():
         An index function that accepts user input as a url
         to a linkedin post and streams a video related to the post
     """
+
+    print(os.path.expanduser( '~' ))
     #   post request condition
     if request.method == 'POST':
         #   get user input 
