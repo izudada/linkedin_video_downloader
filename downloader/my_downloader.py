@@ -27,7 +27,6 @@ def index():
         filename = lk_downloader(linkedin_post, path)
         try:
             return send_from_directory(path, filename, as_attachment=True), os.remove((path+filename))
-            return redirect(url_for('index'))
         except Exception as e:
             print(e)
             flash('Error Downloading Video', 'danger')
