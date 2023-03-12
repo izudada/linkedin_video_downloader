@@ -1,19 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LinkedIn Video Downloader</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Poppins:wght@400;600;700&family=Tilt+Neon&display=swap" rel="stylesheet">
-</head>
-<body>
+{% extends "base.html" %} 
+{% block title %} LinkedIn Video Downloader {% endblock %}
 
+{%block body %}
     <main>
-        <div class="loader hidden" id="video_loader"> 
-        </div>
-
         <div class="flash">
             {% for category, message in get_flashed_messages(with_categories=true) %}
                 <div class="{{ category }}">{{ message }}</div>
@@ -22,12 +11,15 @@
 
         <h1>LinkedIn Video Donwloader </h1>
         <form action="" method="post">
-            <input type="text" placeholder="paste link here" name="url" required>
-            <input type="submit" id="submit" value="Download">
+            <input type="text" id="url" placeholder="paste link here" name="url" onkeyup="inputListener()" required>
+            <div class="loader hidden" id="video_loader"> 
+            </div>
+            <p id="action-text" class="hidden"> Getting Linkedin video, please wait...</p>
+    
         </form>
-    </main>
 
-    <script src="{{ url_for('static', filename='main.js') }}"></script>
-
-</body>
-</html>
+        <a href="/download"> 
+            <button id="download" class="download" > Download </button>
+        </a>
+</main>
+{% endblock %}
