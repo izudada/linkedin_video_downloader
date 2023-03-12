@@ -1,5 +1,5 @@
 let loader = document.getElementById('video_loader');
-let submitButton = document.getElementById('submit');
+let submitButton = document.getElementById('download');
 let heading1 = document.getElementsByTagName("h1")[0];
 let action = document.getElementById("action-text");
 
