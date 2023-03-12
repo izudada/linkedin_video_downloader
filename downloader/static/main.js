@@ -1,23 +1,26 @@
 let loader = document.getElementById('video_loader');
 let submitButton = document.getElementById('submit');
 let heading1 = document.getElementsByTagName("h1")[0];
+let action = document.getElementById("action-text");
 
 
-// function to stop spinner after 10secs 
-function stopSpinner (){
-    // add hidden class from spinner
-    loader.classList.add('hidden');
- }
-
-// add event listener on submit button
-submitButton.addEventListener('click', () => {
-
-    // reduce the margin of the heading tag when spinner appears
-    heading1.style.marginTop = "40vh";
-    // remove hidden class from spinner
+function inputListener() {
+    let url = document.getElementById("url").value;
+    heading1.style.marginTop = "28vh";
     loader.classList.remove('hidden');
-
-})
-
-// spinner timeout
-const myTimeout = setTimeout(stopSpinner, 8000);
+    action.classList.remove("hidden");
+    $.ajax({
+        type: 'POST',
+        url : `/`,
+        data: {"url": url},
+        success: function(response){
+            console.log(response)
+            loader.classList.add('hidden');
+            action.classList.add("hidden");
+            submitButton.classList.remove('hidden');
+        },
+        error: function(error) {
+            console.log(error)
+        }
+    })
+}

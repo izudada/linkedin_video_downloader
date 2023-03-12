@@ -3,6 +3,7 @@
     --mg-bottom: 30px;
     --deep-black: #000000;
     --main-white: #ffffff;
+    --dark-blue: #003d66;
 }
 
 *{
@@ -50,7 +51,7 @@ form{
     background-color: red;
 }
 
-h1, input[type="submit"]{
+h1, .download{
     margin-bottom: var(--mg-bottom);
 }
 
@@ -64,7 +65,7 @@ input[type="text"]{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-input[type="submit"]{
+.download{
     padding: 5px 15px;
     background-color: var(--deep-black);
     color: var(--light-blue);
@@ -74,7 +75,7 @@ input[type="submit"]{
     border-radius: var(--mg-bottom);
 }
 
-input[type="submit"]:hover{
+.download:hover{
     background-color: var(--light-blue);
     color: var(--deep-black);
     border: 1px solid var(--deep-black);
@@ -82,15 +83,15 @@ input[type="submit"]:hover{
 }
 
 .loader {
-    border: 16px solid var(--main-white);
-    border-top: 16px solid  #003d66;
+    border: 10px solid var(--main-white);
+    border-top: 10px solid  var(--dark-blue);
     border-radius: 50%;
-    margin: 10vh 0 2vh 0;
-    width: 70px;
-    height: 70px;
+    margin: 0 0 2vh 0;
+    width: 20px;
+    height: 20px;
     animation: spin 2s linear infinite;
-    position: absolute;
-    right: 50%;
+    position: relative;
+    right: 0%;
 }
   
 @keyframes spin {
@@ -100,6 +101,11 @@ input[type="submit"]:hover{
 
 .hidden{
     display:none;
+    transition: 0.5s all;
+}
+
+#action-text{
+    color: var(--dark-blue);
 }
 
 @media screen and (max-width: 700px) {

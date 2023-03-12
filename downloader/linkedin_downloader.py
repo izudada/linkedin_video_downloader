@@ -28,7 +28,6 @@ def lk_downloader(link, path):
     result = json.loads(videos[0]['data-sources'])[0]['src']
     file_name = f"{title}_video.mp4"  #   create filename from title
 
-    print(result)
     #   make request using video url
     try:
         video_url = requests.get(result, stream=True)
