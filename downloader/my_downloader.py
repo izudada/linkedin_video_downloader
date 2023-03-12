@@ -42,5 +42,4 @@ def download():
     """
     path = session['path']
     filename = session['filename']
-    return send_from_directory(path, filename, as_attachment=True)
-    # os.remove((path+filename)), session.clear()
+    return send_from_directory(path, filename, as_attachment=True), os.remove((path+filename)), session.clear()
