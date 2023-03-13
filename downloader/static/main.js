@@ -1,7 +1,8 @@
 let loader = document.getElementById('video_loader');
-let submitButton = document.getElementById('download');
+let downloadButton = document.getElementById('download');
 let heading1 = document.getElementsByTagName("h1")[0];
 let action = document.getElementById("action-text");
+let anchorTag = document.getElementById("download-anchor");
 
 
 function inputListener() {
@@ -14,10 +15,10 @@ function inputListener() {
         url : `/`,
         data: {"url": url},
         success: function(response){
-            console.log(response)
+            anchorTag.setAttribute("href", `/download/${response.fileName}`);
             loader.classList.add('hidden');
             action.classList.add("hidden");
-            submitButton.classList.remove('hidden');
+            downloadButton.classList.remove('hidden');
         },
         error: function(error) {
             console.log(error)
