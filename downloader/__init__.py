@@ -30,6 +30,6 @@ def create_app(test_config=None):
     
     app.register_blueprint(my_downloader.bp)
     app.add_url_rule('/', endpoint='index')
-    app.add_url_rule('/download', endpoint='download')
+    app.add_url_rule('/download/<filename>', endpoint='download')
 
     return app
