@@ -20,6 +20,10 @@ body{
     margin-left: 20px;
 }
 
+a{
+    text-decoration: none;
+}
+
 .form{
     display: flex;
     justify-content: center;
@@ -113,6 +117,34 @@ input[type="text"]{
     color: var(--dark-blue);
 }
 
+/* ERROR PAGES */
+
+.error-body{
+    text-align: center;
+}
+
+.error-text{
+    margin-top: -5vh;
+    color: var(--deep-black);
+    font-size: 250pt;
+    font-weight: bold;
+}
+
+.error-helper{
+    margin-top: -10px;
+    font-size: 20pt;
+}
+
+.error-helper span{
+    color: var(--light-blue);
+    font-weight: bold;
+    background-color: var(--deep-black);
+    padding: 2px 9px;
+    border-radius: 5px;
+}
+
+/* END OF ERROR PAGES */
+
 @media screen and (max-width: 700px) {
     h1{
         font-size: 1.5em;
@@ -123,5 +155,20 @@ input[type="text"]{
         width: 80%; 
         font-size: 10pt;
         padding: 10px 15px;
+    }
+
+    .error-text{
+        margin: 5vh 0;
+        color: var(--deep-black);
+        font-size: 100pt;
+        font-weight: bold;
+    }
+
+    .error-text img{
+        width: 30%;
+    }
+
+    .error-helper{
+        font-size: 17pt;
     }
 }
