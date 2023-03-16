@@ -8,18 +8,23 @@
                 <div class="{{ category }}">{{ message }}</div>
             {% endfor %}
         </div>
+       
+        <div class="form">
+            <h1>LinkedIn Video Donwloader </h1>
+            <form action="" method="post">
+                <input type="text" id="url" placeholder="paste link here" name="url" onkeyup="inputListener()" required>
+            </form>
 
-        <h1>LinkedIn Video Donwloader </h1>
-        <form action="" method="post">
-            <input type="text" id="url" placeholder="paste link here" name="url" onkeyup="inputListener()" required>
             <div class="loader hidden" id="video_loader"> 
             </div>
             <p id="action-text" class="hidden"> Getting Linkedin video, please wait...</p>
-    
-        </form>
 
-        <a id="download-anchor" href=""> 
-            <button id="download" class="download hidden"> Download </button>
-        </a>
+            <a id="download-anchor" href=""> 
+                <button id="download" class="download hidden"> Download </button>
+            </a>
+        </div>
+
+
+
 </main>
 {% endblock %}
