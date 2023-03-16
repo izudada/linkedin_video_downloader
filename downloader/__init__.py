@@ -23,8 +23,8 @@ def create_app(test_config=None):
     except OSError:
         pass
     
-    app.register_blueprint(my_downloader.bp)
+    app.register_blueprint(my_downloader.bp, url_prefic='/')
     app.add_url_rule('/', endpoint='index')
-    app.add_url_rule('/download/<filename>', endpoint='download')
+    # app.add_url_rule('/download/<filename>', endpoint='download')
 
     return app
