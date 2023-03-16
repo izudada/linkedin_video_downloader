@@ -1,6 +1,6 @@
 import os
-from flask import Flask
-from downloader import my_downloader
+from flask import Flask, render_template
+from downloader import error_handler, my_downloader
 
 
 def create_app(test_config=None):
@@ -23,6 +23,7 @@ def create_app(test_config=None):
     except OSError:
         pass
     
+    app.register_blueprint(error_handler.bp)
     app.register_blueprint(my_downloader.bp, url_prefic='/')
     app.add_url_rule('/', endpoint='index')
     # app.add_url_rule('/download/<filename>', endpoint='download')
