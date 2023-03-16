@@ -11,24 +11,25 @@
     padding: 0;
 }
 
-body, form{
-    display: flex;
-    justify-content: center;
-}
-
 body{
     font-family: 'Tilt Neon', cursive;
     background-color: var(--light-blue);
+}
+
+.logo{
+    margin-left: 20px;
+}
+
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     text-align: center;
 }
 
 h1{
-    margin-top: 35vh;
-}
-
-form{
-    flex-direction: column;
-    align-items: center;
+    margin-top: 15vh;
 }
 
 .flash{
@@ -55,8 +56,12 @@ h1, .download{
     margin-bottom: var(--mg-bottom);
 }
 
+form{
+    width: 100%;
+}
+
 input[type="text"]{
-    width: 100%; 
+    width: 50%; 
     padding: 15px 20px;
     border-radius: 19px;
     margin-bottom: var(--mg-bottom);
@@ -109,7 +114,14 @@ input[type="text"]{
 }
 
 @media screen and (max-width: 700px) {
+    h1{
+        font-size: 1.5em;
+        margin-top: 12vh;
+    }
+
     input[type="text"]{
         width: 80%; 
+        font-size: 10pt;
+        padding: 10px 15px;
     }
 }
