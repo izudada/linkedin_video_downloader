@@ -1,13 +1,11 @@
 let loader = document.getElementById('video_loader');
 let downloadButton = document.getElementById('download');
-let heading1 = document.getElementsByTagName("h1")[0];
 let action = document.getElementById("action-text");
 let anchorTag = document.getElementById("download-anchor");
 
 
 function inputListener() {
     let url = document.getElementById("url").value;
-    heading1.style.marginTop = "28vh";
     loader.classList.remove('hidden');
     action.classList.remove("hidden");
     $.ajax({
