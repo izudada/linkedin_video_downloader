@@ -7,20 +7,22 @@ let urlInput = document.getElementById("url");
 
 $('#url').on('keyup input', function() {
     let url = document.getElementById("url").value;
-    loader.classList.remove('hidden');
-    action.classList.remove("hidden");
-    $.ajax({
-        type: 'POST',
-        url : `/`,
-        data: {"url": url},
-        success: function(response){
-            anchorTag.setAttribute("href", `/download/${response.fileName}`);
-            loader.classList.add('hidden');
-            action.classList.add("hidden");
-            downloadButton.classList.remove('hidden');
-        },
-        error: function(error) {
-            console.log(error)
-        }
-    })
+    if (url.length > 0){
+        loader.classList.remove('hidden');
+        action.classList.remove("hidden");
+        $.ajax({
+            type: 'POST',
+            url : `/`,
+            data: {"url": url},
+            success: function(response){
+                anchorTag.setAttribute("href", `/download/${response.fileName}`);
+                loader.classList.add('hidden');
+                action.classList.add("hidden");
+                downloadButton.classList.remove('hidden');
+            },
+            error: function(error) {
+                console.log(error)
+            }
+        })
+    }
 });
