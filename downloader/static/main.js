@@ -2,9 +2,10 @@ let loader = document.getElementById('video_loader');
 let downloadButton = document.getElementById('download');
 let action = document.getElementById("action-text");
 let anchorTag = document.getElementById("download-anchor");
+let urlInput = document.getElementById("url");
 
 
-function inputListener() {
+$('#url').on('keyup touchend', function() {
     let url = document.getElementById("url").value;
     loader.classList.remove('hidden');
     action.classList.remove("hidden");
@@ -22,4 +23,4 @@ function inputListener() {
             console.log(error)
         }
     })
-}
+});
