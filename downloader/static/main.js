@@ -5,7 +5,7 @@ let anchorTag = document.getElementById("download-anchor");
 let urlInput = document.getElementById("url");
 
 
-$('#url').on('keyup touchend', function() {
+$('#url').on('keyup input', function() {
     let url = document.getElementById("url").value;
     loader.classList.remove('hidden');
     action.classList.remove("hidden");
