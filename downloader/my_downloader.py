@@ -43,4 +43,9 @@ def download(filename):
     """
     path = get_server_path()
     print(path, filename)
-    return send_from_directory(path, filename, as_attachment=True), os.remove((path+filename))
+    try:
+        return send_from_directory(path, filename, as_attachment=True), os.remove((path+filename))
+    except Exception as e:
+        print(e)
+        flash("Video file not found. Please copy and paste the link again.", "danger")
+        return redirect(url_for('index'))
