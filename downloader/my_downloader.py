@@ -39,7 +39,7 @@ def index():
         return render_template('index.html')
     
 @bp.route('/download/<filename>', methods = ['GET'])
-@cross_origin(origins="http://127.0.0.1:5000, https://linkedinsave.xyz")
+@cross_origin(origins="https://linkedinsave.xyz")
 def download(filename):
     """
         An function that allows for video download
