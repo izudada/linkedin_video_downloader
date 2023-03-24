@@ -20,7 +20,7 @@ def get_server_path():
     return path
 
 @bp.route('/', methods = ['GET', 'POST'])
-@cross_origin(origins="http://127.0.0.1:5000, https://linkedinsave.xyz")
+@cross_origin(origins="https://linkedinsave.xyz")
 def index():
     """
         An index function that accepts user input as a url
