@@ -1,6 +1,7 @@
 from flask import (
     Blueprint, flash, jsonify, redirect, render_template, request, send_from_directory, session, url_for
 )
+from flask_cors import cross_origin
 from downloader.linkedin_downloader import lk_downloader
 import os
 
@@ -19,6 +20,7 @@ def get_server_path():
     return path
 
 @bp.route('/', methods = ['GET', 'POST'])
+@cross_origin(origins="http://127.0.0.1:5000, https://linkedinsave.xyz")
 def index():
     """
         An index function that accepts user input as a url
@@ -37,6 +39,7 @@ def index():
         return render_template('index.html')
     
 @bp.route('/download/<filename>', methods = ['GET'])
+@cross_origin(origins="http://127.0.0.1:5000, https://linkedinsave.xyz")
 def download(filename):
     """
         An function that allows for video download
