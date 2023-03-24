@@ -28,7 +28,7 @@ def index():
     """
     path = get_server_path()
     #   post request condition
-    if request.method == 'POST':
+    if request.method == 'POST' and request.headers.get('X-Requested-With'):
         #   get user input 
         linkedin_post = request.form['url']
         #   call lk_downloader and pass in user input
