@@ -3,6 +3,8 @@ let downloadButton = document.getElementById('download');
 let action = document.getElementById("action-text");
 let anchorTag = document.getElementById("download-anchor");
 let urlInput = document.getElementById("url");
+let footer = document.getElementsByTagName('footer')[0];
+let web_date = document.getElementById("date");
 
 const validateLinkedInPost = (url) => {
     /*
@@ -51,3 +53,8 @@ $('#url').on('keyup input', function() {
         $('#url').val('');
     }
 });
+
+
+const d = new Date().getFullYear();
+web_date.innerHTML = "&copy; " + d ;
+footer.classList.add('footer_class');
