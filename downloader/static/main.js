@@ -54,6 +54,22 @@ $('#url').on('keyup input', function() {
     }
 });
 
+// onclick event on donload button
+$('#download').on('click', () =>{
+    // remove flash messge element and recreate
+    $('.flash').remove();
+    $("main").prepend(`
+        <div class="flash">
+            <div class="success">Your download will begin in few second, please wait...</div>
+        </div>
+    `);
+    $('.flash').fadeOut(25000);
+    $('#url').val('');
+  // Set a timeout to hide the button after 10 seconds
+    setTimeout(function() {
+        $('#download').addClass('hidden');
+    }, 10000);
+});
 
 const d = new Date().getFullYear();
 web_date.innerHTML = "&copy; " + d ;

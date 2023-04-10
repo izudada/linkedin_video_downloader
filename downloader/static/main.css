@@ -166,6 +166,16 @@ input[type="text"]{
         padding: 10px 15px;
     }
 
+    .flash{
+        top: 19vh;
+        right: 1px;
+        width: 50%;
+        font-size: 7pt;
+    }
+    .success, .danger{
+        padding: 11px 6px;
+    }
+
     .error-text{
         margin: 5vh 0;
         color: var(--deep-black);
