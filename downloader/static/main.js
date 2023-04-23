@@ -10,11 +10,16 @@ const validateLinkedInPost = (url) => {
     /*
         A function that validates a linkedin post
     */
-    var pattern = /\/posts\/([a-zA-Z0-9\-]+)/;
-    var match = url.match(pattern);
+    var post_pattern = /\/posts\/([a-zA-Z0-9\-]+)/;
+    var feed_pattern = /^https:\/\/www.linkedin.com\/feed\/update\/urn:li:activity:([0-9]+)/;
+    var match = url.match(post_pattern);
+    var feed_match = url.match(feed_pattern)
+
+    // check if url matches post url or feed url
     if (match && match[1]) {
         var postId = match[1];
-        // You can now check if the postId is valid using the LinkedIn API or any other method
+        return true;
+    } else if(feed_match && feed_match[1]){
         return true;
     } else {
         return false;
