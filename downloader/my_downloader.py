@@ -4,6 +4,7 @@ from flask import (
 from flask_cors import cross_origin
 from downloader.linkedin_downloader import lk_downloader
 import os
+import socket
 
 
 bp = Blueprint('downloader', __name__)
@@ -13,11 +14,14 @@ def get_server_path():
         A function that gets the path of a server
         for locating a filename
     """
-    if request.environ.get('HTTP_HOST') == '127.0.0.1:5000':
+    local_ip = socket.gethostbyname(socket.gethostname())
+    # Check if the IP address in the URL matches the local IP address
+    if '127.0.0.1' in local_ip or '127.0.1.1' in local_ip:
         path = os.path.expanduser("~")+"/Downloads/"
     else:
         path = os.path.expanduser("~")+"/"
     return path
+
 
 @bp.route('/', methods = ['GET', 'POST'])
 @cross_origin(origins="https://linkedinsave.xyz")
