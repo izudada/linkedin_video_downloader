@@ -22,7 +22,7 @@ Then install the dependencies by running the below command:
 $ pip install -r requirements.txt
 ```
 
-Before starting the flas server, you will need to set some environmental values via the terminal:
+Before starting the flask server, you will need to set some environmental values via the terminal:
 
 ```sh
 $ export FLASK_APP=main   #   tells flask where to find the entry application file

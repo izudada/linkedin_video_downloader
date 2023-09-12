@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import json
 
 
-def lk_downloader(link, path):
+def _lk_downloader(link, path):
     """
         A function that take a url of a linkedIn post
         and dowload a video attached to it if exists

@@ -1,11 +1,11 @@
 from downloader import create_app
 import os
 import time
-from downloader.my_downloader import get_server_path
+from downloader.my_downloader import _get_server_path
 
 app = create_app()
 
-def process_video_deletion():
+def _process_video_deletion():
     """
         A function to delete videos in the server every 24 hours
         by 12am.
@@ -17,7 +17,7 @@ def process_video_deletion():
         Return: return_description
     """
     
-    directory = get_server_path()  # Update this to the directory containing your mp4 files
+    directory = _get_server_path()  # Update this to the directory containing your mp4 files
 
     # Get current time in seconds
     now = time.time()
@@ -48,7 +48,7 @@ def scheduled_delete_videos():
         Return: return_description
     """
     print("Anthony Udeagbala")
-    print(process_video_deletion())
+    print(_process_video_deletion())
 
 if __name__ == '__main__':
     app.run(debug=True)
