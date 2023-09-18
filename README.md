@@ -35,9 +35,16 @@ $ flask run
 ```
 Open your browser and navigate to `http://127.0.0.1:5000/`
 
+celery -A main.celery worker --loglevel=info
+celery -A main.celery beat --loglevel=info
+
+
 
 
 ### Useful resources
 
 - [Flask Documentation](https://flask.palletsprojects.com/en/2.2.x)
 - [Box Shadow Generator](https://getcssscan.com/css-box-shadow-examples)
+
+
+#* * * * * cd /Users/mac/Documents/Projects/linkedin_video_downloader && source linkedinsave_env/bin/activate && export FLASK_APP=main && flask scheduled-delete-videos >> /Users/mac/Documents/Projects/linkedin_video_downloader/scheduled.log 2>&1

@@ -1,9 +1,19 @@
-from downloader import create_app
 import os
+import logging
 import time
+
+from celery import Celery
+
+from downloader import create_app
 from downloader.my_downloader import _get_server_path
 
 app = create_app()
+
+celery = Celery(__name__)
+
+log_file = 'celery_task.log'
+logging.basicConfig(filename=log_file, level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
 
 def _process_video_deletion():
     """
@@ -16,9 +26,9 @@ def _process_video_deletion():
         argument -- description
         Return: return_description
     """
-    
-    directory = _get_server_path()  # Update this to the directory containing your mp4 files
 
+    # Update this to the directory containing your mp4 files
+    directory = _get_server_path()  
     # Get current time in seconds
     now = time.time()
 
@@ -37,7 +47,7 @@ def _process_video_deletion():
             print(filepath)
             print(mod_time)
 
-@app.cli.command()
+@celery.task
 def scheduled_delete_videos():
     """
         This functions serves as a scheduled job
@@ -47,8 +57,10 @@ def scheduled_delete_videos():
         argument -- description
         Return: return_description
     """
+    log.info("Anthony Udeagbala")
+
     print("Anthony Udeagbala")
-    print(_process_video_deletion())
+    # print(_process_video_deletion())
 
 if __name__ == '__main__':
     app.run(debug=True)

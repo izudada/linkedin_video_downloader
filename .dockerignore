@@ -1,0 +1,10 @@
+env
+linkedinsave_env
+
+*.mp4*
+
+
+*.pyc
+*__pycache__*
+
+instance/
