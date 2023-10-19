@@ -7,7 +7,7 @@ from celery import Celery
 from downloader.my_downloader import _get_server_path
 
 
-celery = Celery('task', broker='redis://localhost:6379/0')
+celery = Celery('task', broker='redis://redis:6379/0')
 
 def _process_video_deletion():
     """
@@ -30,10 +30,13 @@ def _process_video_deletion():
     threshold = now - 2 * 60
     # Iterate over files in the directory
     for filename in os.listdir(directory):
+        print(filename, "#######################")
+        print(filename, os.getcwd(), directory)
         if filename.endswith('.mp4'):
             filepath = os.path.join(directory, filename)
             mod_time = os.path.getmtime(filepath)  # Get modification time of file
             if mod_time < threshold:
+                print("Yes")
                 os.remove(filepath)
                 print(f"Deleted {filepath}")
             print(directory)
@@ -53,7 +56,7 @@ def scheduled_delete_videos():
     """
     print("Anthony Udeagbala")
 
-    print(_process_video_deletion())
+    _process_video_deletion()
 
 
 # Configure Celery Beat to schedule the task every 2 minutes

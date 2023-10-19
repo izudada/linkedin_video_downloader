@@ -1,31 +1,24 @@
+import os
+import socket
+
 from flask import (
     Blueprint, flash, jsonify, redirect, render_template, request, send_from_directory, session, url_for
 )
 from flask_cors import cross_origin
+
 from downloader.linkedin_downloader import _lk_downloader
-import os
-import socket
 
 
 bp = Blueprint('downloader', __name__)
 
+
 def _get_server_path():
-    """
-        A function that gets the path of a server
-        for locating a filename
-    """
-    local_ip = ""
-    try:
-        local_ip = socket.gethostbyname(socket.gethostname())
-    except socket.gaierror as e:
-        print(f"Error resolving hostname: {e}")
-        
-    # Check if the IP address in the URL matches the local IP address
-    if '127.0.0.1' in local_ip or '127.0.1.1' in local_ip:
-        path = os.path.expanduser("~")+"/Downloads/"
-    else:
-        path = os.path.expanduser("~")+"/"
+    current_directory = os.getcwd()
+
+    # Construct the path to the 'videos' directory
+    path = os.path.join(current_directory, 'videos')
     return path
+
 
 
 @bp.route('/', methods = ['GET', 'POST'])

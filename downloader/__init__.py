@@ -7,16 +7,6 @@ from downloader import error_handler, my_downloader
 from flask_cors import CORS
 
 
-# def make_celery(app):
-#     celery = Celery(
-#         app.import_name,
-#         backend=app.config['CELERY_RESULT_BACKEND'],
-#         broker=app.config['CELERY_BROKER_URL']
-#     )
-#     celery.conf.update(app.config)
-#     return celery
-
-
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
@@ -24,8 +14,8 @@ def create_app(test_config=None):
 
     app.config.from_mapping(
         SECRET_KEY='dev',
-        CELERY_BROKER_URL='redis://localhost:6379/0',
-        CELERY_RESULT_BACKEND='redis://localhost:6379/0',
+        CELERY_BROKER_URL='redis://redis:6379/0',
+        CELERY_RESULT_BACKEND='redis://redis:6379/0',
     )
 
     if test_config is None:
@@ -50,4 +40,3 @@ def create_app(test_config=None):
 
 
 app = create_app()
-# celery = make_celery(app)

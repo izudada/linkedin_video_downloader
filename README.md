@@ -4,7 +4,7 @@ A web application for downloading videos on [LinkedIn](https://www.linkedin.com)
 Built using Flask, HTML, CSS and Javascript.
 
 
-# Setup
+# Setup 
 
 The first thing to do is to clone the repository:
 
@@ -12,6 +12,7 @@ The first thing to do is to clone the repository:
 $ git clone https://github.com/izudada/linkedin_video_downloader.git
 ```
 
+## Without Docker
 Create a virtual environment to install dependencies and activate it use the link below first to install virtualenv:
 
 [Virtualenv](https://izudada.medium.com/how-to-create-a-virtual-environment-in-python-a47f401506db)
@@ -35,16 +36,32 @@ $ flask run
 ```
 Open your browser and navigate to `http://127.0.0.1:5000/`
 
-celery -A main.celery worker --loglevel=info
-celery -A main.celery beat --loglevel=info
+## With Docker
 
+Build docker file into an image:
+```
+docker-compose build
+```
 
+Start the container:
+```
+docker-compose up
+```
 
+View Container logs
+```
+docker-compose logs
+```
+
+Stop containers:
+```
+docker-compose down
+```
 
 ### Useful resources
 
 - [Flask Documentation](https://flask.palletsprojects.com/en/2.2.x)
 - [Box Shadow Generator](https://getcssscan.com/css-box-shadow-examples)
-
-
-#* * * * * cd /Users/mac/Documents/Projects/linkedin_video_downloader && source linkedinsave_env/bin/activate && export FLASK_APP=main && flask scheduled-delete-videos >> /Users/mac/Documents/Projects/linkedin_video_downloader/scheduled.log 2>&1
+- [Setting up SSH on Digital Ocean Droplet](https://www.youtube.com/watch?v=XBH4AzFR6yk&list=PLYxzS__5yYQk7h6aoN5_rvvvC8WUMxAaB&index=10&pp=iAQB)
+- [Simple Http Server on Digital Ocean Droplet](https://www.youtube.com/watch?v=9feZ1yfXfsQ&list=PLYxzS__5yYQk7h6aoN5_rvvvC8WUMxAaB&index=12)
+- [How to deploy a flask app on digital ocean droplet](https://www.youtube.com/watch?v=RP8nhiiQnTc)
