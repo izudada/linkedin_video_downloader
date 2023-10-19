@@ -64,4 +64,4 @@ docker-compose down
 - [Box Shadow Generator](https://getcssscan.com/css-box-shadow-examples)
 - [Setting up SSH on Digital Ocean Droplet](https://www.youtube.com/watch?v=XBH4AzFR6yk&list=PLYxzS__5yYQk7h6aoN5_rvvvC8WUMxAaB&index=10&pp=iAQB)
 - [Simple Http Server on Digital Ocean Droplet](https://www.youtube.com/watch?v=9feZ1yfXfsQ&list=PLYxzS__5yYQk7h6aoN5_rvvvC8WUMxAaB&index=12)
-- [How to deploy a flask app on digital ocean droplet](https://www.youtube.com/watch?v=RP8nhiiQnTc)
+- [How to deploy a flask app on Digital Ocean Droplet](https://www.youtube.com/watch?v=RP8nhiiQnTc)
